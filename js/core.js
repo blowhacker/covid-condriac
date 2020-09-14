@@ -44,11 +44,11 @@ function fillCovidData() {
                                 let redSign = formatted.casesNewThisWeekComparedToLast > 0 ? "color:red" : 'color:green'
                                 let pipe = `<span style='color:#ccc'>|</span>`
                                 divRegion.innerHTML = `Covid cases per 100k in ${formatted.region}: ${formatted.casesPer100k} ${pipe} 
-                                National avg. ${formatted.casesPer100kNationalAverage} ${pipe}
-                                Cases: ${formatted.casesTotal.toLocaleString()}
-                                ${formatted.casesToDate}
+                                National avg. ${formatted.casesPer100kNationalAverage} <br><br>
+                                Cases: ${formatted.casesTotal.toLocaleString()}                                
                                  ${pipe} 
                                 <span style='${redSign}'>${sign}${formatted.casesNewThisWeekComparedToLast}</span> from last week
+                                <div class='updated'>Date updated on ${formatted.casesToDate}</div>
                                 `
                                 destinationDiv.appendChild(divRegion)
 
