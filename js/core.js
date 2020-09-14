@@ -51,7 +51,7 @@ function fillCovidData() {
                                 <div class='updated'>Data updated on ${formatted.casesToDate}</div>
                                 `
                                 destinationDiv.appendChild(divRegion)
-
+                                break
                             }
 
                         }
