@@ -48,7 +48,7 @@ function fillCovidData() {
                                 Cases: ${formatted.casesTotal.toLocaleString()}                                
                                  ${pipe} 
                                 <span style='${redSign}'>${sign}${formatted.casesNewThisWeekComparedToLast}</span> from last week
-                                <div class='updated'>Date updated on ${formatted.casesToDate}</div>
+                                <div class='updated'>Data updated on ${formatted.casesToDate}</div>
                                 `
                                 destinationDiv.appendChild(divRegion)
 
