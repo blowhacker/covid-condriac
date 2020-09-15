@@ -11,14 +11,15 @@ function initDb(readyCallback) {
 
 function fillCovidData() {
     if (navigator.geolocation) {
-        // navigator.geolocation.getCurrentPosition(latLong)
         navigator.geolocation.watchPosition(latLong, (err) => console.log(err))
 
         function latLong(position) {
             let url = `https://api.postcodes.io/postcodes?lon=${position.coords.longitude}&lat=${position.coords.latitude}`;
+            document.querySelector('.ripple').style.display = ''
             fetch(url)
                 .then(x => x.json())
                 .then(data => {
+                    document.querySelector('.ripple').style.display = 'none'
                     document.getElementById('loading').style.display = "none"
                     let codeAdminDistrict = {}
                     data.result.forEach(row => {
