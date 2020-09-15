@@ -11,7 +11,8 @@ function initDb(readyCallback) {
 
 function fillCovidData() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(latLong)
+        // navigator.geolocation.getCurrentPosition(latLong)
+        navigator.geolocation.watchPosition(latLong, (err) => console.log(err))
 
         function latLong(position) {
             let url = `https://api.postcodes.io/postcodes?lon=${position.coords.longitude}&lat=${position.coords.latitude}`;
@@ -50,6 +51,9 @@ function fillCovidData() {
                                 <span style='${redSign}'>${sign}${formatted.casesNewThisWeekComparedToLast}</span> from last week
                                 <div class='updated'>Data updated on ${formatted.casesToDate}</div>
                                 `
+                                destinationDiv.childNodes.forEach(ele => {
+                                    destinationDiv.removeChild(ele)
+                                })
                                 destinationDiv.appendChild(divRegion)
                                 break
                             }
