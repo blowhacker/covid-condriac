@@ -12,8 +12,17 @@ function initDb(readyCallback) {
 function fillCovidData() {
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(latLong, (err) => console.log(err))
+        let lastLatLong = {}
 
         function latLong(position) {
+            if (lastLatLong.longitude === position.coords.longitude &&
+                lastLatLong.latitude === position.coords.latitude
+            ) {
+                return
+            }
+            lastLatLong.longitude = position.coords.longitude
+            lastLatLong.latitude = position.coords.latitude
+
             let url = `https://api.postcodes.io/postcodes?lon=${position.coords.longitude}&lat=${position.coords.latitude}`;
             document.querySelector('.ripple').style.display = ''
             fetch(url)
