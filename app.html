@@ -28,8 +28,8 @@
         
         .ripple {
             position: absolute;
-            left: 0px;
-            top: 100px;
+            left: -38px;
+            top: -30px;
             width: 2rem;
             height: 2rem;
             margin: 2rem;
@@ -37,6 +37,25 @@
             border: 0.3rem solid darkslategray;
             transform: translate(50%);
             animation: 1s ripple ease-out infinite;
+        }
+        
+        .led {
+            width: 10px;
+            height: 10px;
+            border-radius: 10px;
+            position: absolute;
+            top: 20px;
+            left: 10px;
+        }
+        
+        .ledgreen {
+            background-color: lightgreen;
+            border: 1px solid green;
+        }
+        
+        .ledred {
+            background-color: #FF0000;
+            border: 1px solid darkred;
         }
         
         @keyframes ripple {
@@ -55,6 +74,7 @@
 
 <body>
     <div class="ripple"></div>
+    <div class='led ledgreen'></div>
     <h1>🩺 CovidCondriac</h1>
     <div id="loading">Loading covid stats for your location...</div>
     <div id="main">
